@@ -1,0 +1,28 @@
+<br><br>
+<div class="login">
+  <div class="container">
+    <div class="form_signup">
+     
+		<h1>Voir Produit </h1>
+
+  		<%= image_tag @product.image   , :class =>"img-responsive"  %>
+		<p>  Nom : <%= @product.label %></p>	
+		<p>  Prix : <%= @product.price %> $</p>
+		<p>  Stock: <%= @product.stock %></p>
+		<p>  Vente associée:
+ 			<% if @product.sale  %>
+	    
+				 	<p><%= link_to @product.sale.label , '/sales/show/'+"#{@product.sale.id}" %> </p>
+
+			<% else %>
+				<p>Aucun produit associé<p>
+			<% end %></p>
+
+      <%= link_to 'Back', products_path %> |
+    	<%= link_to 'Edit' , '/products/edit/'+"#{@product.id}" %>   |
+      <%= link_to 'Destroy', '/products/destroy/'+"#{@product.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+    </div>
+  </div>
+</div>
+
+

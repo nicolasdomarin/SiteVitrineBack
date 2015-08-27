@@ -1,0 +1,17 @@
+
+<%= form_for @sale, :html => { :multipart => true } do |f| %>
+   <%= f.label :label %><br>
+   <%= f.text_field :label %><br>
+   <%= f.label :start_datetime %><br>
+   <%= f.date_select :start_datetime %><br>
+   <%= f.time_select :start_datetime, :ignore_date => true %><br>
+   <%= f.label :end_datetime %><br>
+   <%= f.date_select :end_datetime %><br>
+   <%= f.time_select :end_datetime, :ignore_date => true %><br>
+   <%= f.label :description %><br>
+   <%= f.text_field :description %><br>
+   <%= f.label :shipping_fees %><br>
+   <%= f.text_field :shipping_fees %><br>
+    <br>
+  <%= f.submit "ENREGISTRER", :class => "btn btn-success" %>
+ <% end %>

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+     Ventes
+    </h1>
+  </div>
+</div>
+
+<%= link_to 'Créer Vente' , sales_new_path %>
+
+<div class="col-lg-6">
+     <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Date de Début</th>
+        <th>Date de Fin</th>
+        <th>Description</th>
+        <th>Frais de Livraison</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @sales.each do |p| %>
+        <tr>
+          <td>  <%= p.label %></td>
+          <td>  <%= p.start_datetime  %></td>
+          <td>  <%= p.end_datetime  %></td>
+          <td>  <%= p.description  %></td>
+          <td>    <% if p.shipping_fees %> 
+              <%= p.shipping_fees %>
+            <% else %> 
+              Aucun frais de livraison
+            <% end%></td>
+          <td>  
+                  <%= link_to 'Voir' , '/sales/show/'+"#{p.id}" %> |   
+                  <%= link_to 'Editer' , '/sales/edit/'+"#{p.id}" %>    |
+            
+                  <%= link_to 'Supprimer', '/sales/destroy/'+"#{p.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+            </td>
+        </tr>
+        <%end %>
+    
+
+      
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<br><br>
+<div class="login">
+  <div class="container">
+    <div class="form_signup">
+      <h1>Editer Vente</h1>
+      <%= render 'form' %>
+<br>
+       <%= link_to 'Voir' , '/sales/show/'+"#{@sale.id}" %> |   
+      <%= link_to 'Retour', sales_path %> |
+      <%= link_to 'Supprimer', '/sales/destroy/'+"#{@sale.id}" , method: "delete" %>
+    </div>
+  </div>
+</div>

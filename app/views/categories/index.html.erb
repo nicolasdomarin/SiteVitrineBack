@@ -1,0 +1,34 @@
+<div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+            Catégories
+        </h1>
+      </div>
+    </div>
+
+
+    <%= link_to 'Crée une catégorie' , categories_new_path %>
+
+    <div class="col-lg-6">
+         <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @categories.each do |c| %>
+               <tr>
+                <td>  <%=  c.label %></td>
+                <td>  
+                      <%= link_to 'Editer' , '/categories/edit/'+"#{c.id}" %>   
+ 
+                </td>
+               </tr>
+            <%end %>
+          </tbody>
+        </table>
+      </div>
+    </div>

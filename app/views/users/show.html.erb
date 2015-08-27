@@ -1,0 +1,14 @@
+<br><br>
+<div class="login">
+  <div class="container">
+   <div class="form_signup">
+      <h1>Informations Utilisateur</h1>
+	<div>  Nom d'utilisateur: <%= @user.username %></div>
+    <div>   Nom : <%= @user.last_name %></div>
+    <div>   Prénom :<%= @user.first_name  %></div>
+    <div>   Adresse Email :<%= @user.email %></div>
+          
+      <%= link_to 'Retour', users_path %>
+    </div>
+  </div>
+</div>

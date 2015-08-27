@@ -1,0 +1,32 @@
+<br><br>
+<div class="login">
+  <div class="container">
+    <div class="form_signup">
+      <h1>Voir Vente </h1>
+
+          <p>  Nom : <%= @sale.label %></p>
+           	<p>  Date de Début : <%= @sale.start_datetime.strftime("%d/%M/%Y %H:%M") %></p>
+           	<p>  Date de Fin : <%= @sale.end_datetime.strftime("%d/%M/%Y  %H:%M")%></p>
+           	<p>  Description: <%= @sale.description %></p>
+           	<p>  Frais de Livraison :
+           	<% if @sale.shipping_fees %> 
+           		<%= @sale.shipping_fees %>
+           	<% else %> 
+           		Aucun frais
+           	<% end%>
+           	</p>
+ 			Produit(s) associé(s) :
+ 			<% if @sale.products.size > 0 %>
+	           	<% @sale.products.each do |p|  %>
+				 	<p><%= link_to p.label , '/products/show/'+"#{p.id}" %> </p>
+				<% end %>
+			<% else %>
+				<p>Aucun produit associé<p>
+			<% end %>
+
+      <%= link_to 'Retour', sales_path %> |
+    	<%= link_to 'Editer' , '/sales/edit/'+"#{@sale.id}" %>   |
+      <%= link_to 'Supprimer', '/sales/destroy/'+"#{@sale.id}" , method: "delete" , data: {confirm: "You sure?"}%>
+    </div>
+  </div>
+</div>
