@@ -1,4 +1,5 @@
 class SalesController < ApplicationController
+before_action :require_user
 
 	def index 
 		@sales = Sale.all

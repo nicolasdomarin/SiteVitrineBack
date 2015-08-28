@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
-	def index 
+	
+  before_action :require_user
+
+  def index 
      @categories = Category.all
 	end
 

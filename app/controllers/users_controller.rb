@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
-	def index 
-		@users = User.all
-	end
+		before_action :require_user
+  
 
-	
   def index
     @users = User.all
+  end
+
+  def info 
+   @user = User.find(session[:user_id])
   end
 
 
@@ -49,8 +51,10 @@ end
    	end
   end
 
-  def users_params
-  params.require(:user).permit(:first_name, :last_name , :user_name , :email )
-end
+  
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :password , :newsletter ,:salt)
+    end
+
 
 end
